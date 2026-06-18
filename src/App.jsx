@@ -1,30 +1,45 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
+import { useState } from "react";
 
 function App() {
+  const [count, setCount] = useState(0);
+  const [name,setName]=useState("");
+
   return (
-    <div>
-      <Header title="Komila VIbe" />
-      <Navbar
-        name="Komila"
-        age={22}
-        job="Frontend Developer"
+    <>
+      <Navbar />
+      <Header />
+
+      <h1>Asosiy sahifa</h1>
+
+      <p>
+        Bu sahifada React asoslarini - komponentlar, props va state'ni
+        o'rganamiz.
+      </p>
+
+      <h2>Mening loyihalarim</h2>
+
+      <ul>
+        <li>Portfolio sayti</li>
+        <li>To-do ilovasi</li>
+        <li>Weather app</li>
+      </ul>
+
+      <h3>Hisoblagich: {count}</h3>
+      <button onClick={() => setCount(count + 1)}>
+        Qo'shish
+      </button>
+
+      <h1>Salom,{name}</h1>
+      <input
+       type="text" 
+       onChange={(e)=> setName(e.target.value)}
       />
-      <main>
-        <h2>Asosiy saxifa</h2>
-        <p>Bu sahifada React asoslarini - komponentlar, props va state'ni o'rganamiz.</p>
-        <section>
-          <h3>Mening loyihalarim</h3>
-          <ul>
-            <li>Portfolio sayti</li>
-            <li>To-do ilovasi</li>
-            <li>Weather app</li>
-          </ul>
-        </section>
-      </main>
+
       <Footer />
-    </div>
+    </>
   );
 }
 
